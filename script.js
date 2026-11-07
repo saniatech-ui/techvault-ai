@@ -163,7 +163,7 @@ const PRODUCTS = [
     type: 'Keyboard',
     description:
       'A wireless tenkeyless mechanical keyboard with QMK/VIA support, hot-swappable switches, and a sturdy aluminium frame for developers and typists.',
-    priceUSD: 109,
+    priceUSD: 119.99$,
     addedOrder: 3,
     image:
       'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&q=80&auto=format&fit=crop',
@@ -204,8 +204,9 @@ const PRODUCTS = [
       'hot-swap', 'wireless', 'keychron'
     ],
     offers: [
-      { retailer: 'Amazon', priceUSD: 109, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' },
-      { retailer: 'Keychron Store', priceUSD: 109, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' }
+        { retailer: 'Amazon', priceUSD: 119.99, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample', link: 'https://link.amazon/A06zrnqKc' },
+{ retailer: 'Keychron Store', priceUSD: 119.99, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample', link: 'https://link.amazon/A06zrnqKc' }
+
     ]
   },
   {
