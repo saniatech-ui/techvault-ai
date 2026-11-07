@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechVault AI — Find the Right Technology. Make Smarter Decisions.</title>
+  <meta
+    name="description"
+    content="TechVault AI is an independent technology and AI product discovery platform. Explore products, compare specifications and retailer offers, build a wishlist, and read practical buying guides."
+  />
+  <meta name="theme-color" content="#0F172A" />
+  <meta name="color-scheme" content="light" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheet (Stage 2) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================================================
+       1. NAVIGATION BAR
+  ============================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="TechVault AI — home">
+        <span class="brand-mark" aria-hidden="true">
+          <i data-lucide="vault"></i>
+        </span>
+        <span class="brand-text">TechVault<span class="brand-accent">AI</span></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#products">Products</a></li>
+          <li><a class="nav-link" href="#categories">Categories</a></li>
+          <li><a class="nav-link" href="#compare">Compare</a></li>
+          <li><a class="nav-link" href="#ai-tools">AI Tools</a></li>
+          <li><a class="nav-link" href="#guides">Buying Guides</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="icon-btn"
+          id="navSearchBtn"
+          aria-label="Go to product search"
+          title="Search products"
+        >
+          <i data-lucide="search"></i>
+        </button>
+
+        <button
+          type="button"
+          class="icon-btn"
+          id="navWishlistBtn"
+          aria-label="Open wishlist"
+          title="Wishlist"
+        >
+          <i data-lucide="heart"></i>
+          <span class="badge" id="wishlistCount" hidden>0</span>
+        </button>
+
+        <div class="currency-wrap">
+          <label class="sr-only" for="currencySelect">Display currency</label>
+          <select id="currencySelect" class="currency-select" aria-label="Display currency">
+            <option value="USD" selected>USD $</option>
+            <option value="GBP">GBP £</option>
+            <option value="EUR">EUR €</option>
+            <option value="PKR">PKR ₨</option>
+            <option value="CAD">CAD $</option>
+            <option value="AUD">AUD $</option>
+          </select>
+        </div>
+
+        <button
+          type="button"
+          class="icon-btn mobile-toggle"
+          id="mobileMenuToggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile navigation panel -->
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a class="mobile-nav-link" href="#home">Home</a></li>
+          <li><a class="mobile-nav-link" href="#products">Products</a></li>
+          <li><a class="mobile-nav-link" href="#categories">Categories</a></li>
+          <li><a class="mobile-nav-link" href="#compare">Compare</a></li>
+          <li><a class="mobile-nav-link" href="#ai-tools">AI Tools</a></li>
+          <li><a class="mobile-nav-link" href="#guides">Buying Guides</a></li>
+          <li><a class="mobile-nav-link" href="#wishlist">Wishlist</a></li>
+          <li><a class="mobile-nav-link" href="#finder">Setup Finder</a></li>
+          <li><a class="mobile-nav-link" href="#bundles">Setup Bundles</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================
+         2. HERO SECTION
+    ============================================================= -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            Independent tech &amp; AI curation
+          </p>
+
+          <h1 class="hero-title">
+            Find the Right Technology.<br />
+            Make Smarter Decisions.
+          </h1>
+
+          <p class="hero-subtitle">
+            Discover, explore, and compare technology products and AI tools in one place.
+          </p>
+
+          <form class="hero-search" id="heroSearchForm" role="search" novalidate>
+            <i data-lucide="search" class="hero-search-icon" aria-hidden="true"></i>
+            <label class="sr-only" for="heroSearchInput">
+              Search products, brands and categories
+            </label>
+            <input
+              type="search"
+              id="heroSearchInput"
+              class="hero-search-input"
+              placeholder="Search products, brands, categories…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="submit" class="btn btn-primary hero-search-btn">
+              Search
+            </button>
+          </form>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary btn-lg">
+              Explore Products
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="#ai-tools" class="btn btn-ghost btn-lg">
+              Explore AI Tools
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Transparent specifications. Clearly labelled offer data. No paid rankings.
+          </p>
+        </div>
+
+        <!-- Refined UI preview card (decorative representation) -->
+        <div class="hero-preview" aria-hidden="true">
+          <div class="preview-card">
+            <div class="preview-topbar">
+              <span class="preview-dots"><span></span><span></span><span></span></span>
+              <span class="preview-label">Product comparison preview</span>
+            </div>
+
+            <div class="preview-body">
+              <div class="preview-product">
+                <div class="preview-thumb"></div>
+                <div class="preview-product-info">
+                  <p class="preview-name">Apple MacBook Air M3</p>
+                  <p class="preview-meta">13.6" · M3 · 16 GB · 512 GB</p>
+                </div>
+                <span class="preview-badge">Laptop</span>
+              </div>
+
+              <ul class="preview-specs">
+                <li><span>Chip</span><strong>Apple M3</strong></li>
+                <li><span>Memory</span><strong>16 GB unified</strong></li>
+                <li><span>Display</span><strong>13.6" Liquid Retina</strong></li>
+                <li><span>Weight</span><strong>1.24 kg</strong></li>
+              </ul>
+
+              <div class="preview-offers">
+                <div class="preview-offer">
+                  <span class="preview-retailer">Retailer offer · sample</span>
+                  <span class="preview-price">$1,199.00</span>
+                  <span class="preview-status preview-status--sample">Development data</span>
+                </div>
+                <div class="preview-offer">
+                  <span class="preview-retailer">Retailer offer · sample</span>
+                  <span class="preview-price">$1,249.00</span>
+                  <span class="preview-status preview-status--sample">Development data</span>
+                </div>
+              </div>
+
+              <div class="preview-foot">
+                <span class="preview-pill">2 products compared</span>
+                <span class="preview-pill preview-pill--ghost">Prices shown are sample data</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. TRUST & TRANSPARENCY BAR
+    ============================================================= -->
+    <section class="trust-bar" aria-labelledby="trustHeading">
+      <h2 class="sr-only" id="trustHeading">Our transparency commitments</h2>
+      <div class="container trust-grid">
+        <article class="trust-item">
+          <span class="trust-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+          <div class="trust-copy">
+            <h3 class="trust-title">No Paid Rankings</h3>
+            <p class="trust-text">We don't accept payment to influence product rankings.</p>
+          </div>
+        </article>
+
+        <article class="trust-item">
+          <span class="trust-icon" aria-hidden="true"><i data-lucide="refresh-cw"></i></span>
+          <div class="trust-copy">
+            <h3 class="trust-title">Transparent Price Updates</h3>
+            <p class="trust-text">
+              See available retailer prices and when the information was last checked.
+            </p>
+          </div>
+        </article>
+
+        <article class="trust-item">
+          <span class="trust-icon" aria-hidden="true"><i data-lucide="brain-circuit"></i></span>
+          <div class="trust-copy">
+            <h3 class="trust-title">CS-Informed Curation</h3>
+            <p class="trust-text">
+              Product selection considers technical specifications, practical requirements,
+              and user needs.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. PRODUCT CATEGORIES
+    ============================================================= -->
+    <section class="section categories-section" id="categories">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Browse</p>
+            <h2 class="section-title">Explore Categories</h2>
+            <p class="section-subtitle">
+              Start from a category and narrow down to the products that match your needs.
+            </p>
+          </div>
+          <a href="#products" class="link-arrow">
+            View all products <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </header>
+
+        <div class="category-grid" id="categoryGrid">
+          <a class="category-card" href="#products" data-category="Laptops">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="laptop"></i></span>
+            <h3 class="category-name">Laptops</h3>
+            <p class="category-desc">Ultrabooks, developer machines, and creator notebooks.</p>
+            <span class="category-count" data-category-count="Laptops"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Smartphones">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="smartphone"></i></span>
+            <h3 class="category-name">Smartphones</h3>
+            <p class="category-desc">Flagships and value phones for daily and mobile work.</p>
+            <span class="category-count" data-category-count="Smartphones"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="PC Components">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="cpu"></i></span>
+            <h3 class="category-name">PC Components</h3>
+            <p class="category-desc">CPUs, GPUs, motherboards, and everything inside the case.</p>
+            <span class="category-count" data-category-count="PC Components"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Monitors">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="monitor"></i></span>
+            <h3 class="category-name">Monitors</h3>
+            <p class="category-desc">Displays for productivity, design, and high-refresh gaming.</p>
+            <span class="category-count" data-category-count="Monitors"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Keyboards &amp; Mice">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="keyboard"></i></span>
+            <h3 class="category-name">Keyboards &amp; Mice</h3>
+            <p class="category-desc">Input devices built for long working sessions.</p>
+            <span class="category-count" data-category-count="Keyboards &amp; Mice"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Headphones &amp; Audio">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="headphones"></i></span>
+            <h3 class="category-name">Headphones &amp; Audio</h3>
+            <p class="category-desc">Noise cancelling, studio, and everyday listening gear.</p>
+            <span class="category-count" data-category-count="Headphones &amp; Audio"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Gaming Accessories">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="gamepad-2"></i></span>
+            <h3 class="category-name">Gaming Accessories</h3>
+            <p class="category-desc">Controllers, headsets, and peripherals for play.</p>
+            <span class="category-count" data-category-count="Gaming Accessories"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Desk Setup">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="lamp-desk"></i></span>
+            <h3 class="category-name">Desk Setup</h3>
+            <p class="category-desc">Stands, lighting, chairs, and desk organisation.</p>
+            <span class="category-count" data-category-count="Desk Setup"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Storage Devices">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="hard-drive"></i></span>
+            <h3 class="category-name">Storage Devices</h3>
+            <p class="category-desc">NVMe SSDs, external drives, and backups.</p>
+            <span class="category-count" data-category-count="Storage Devices"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Networking Devices">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="wifi"></i></span>
+            <h3 class="category-name">Networking Devices</h3>
+            <p class="category-desc">Routers, mesh systems, and adapters for reliable connectivity.</p>
+            <span class="category-count" data-category-count="Networking Devices"></span>
+          </a>
+
+          <a class="category-card" href="#products" data-category="Smart Devices">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="home"></i></span>
+            <h3 class="category-name">Smart Devices</h3>
+            <p class="category-desc">Connected home hardware and wearables.</p>
+            <span class="category-count" data-category-count="Smart Devices"></span>
+          </a>
+
+          <a class="category-card" href="#ai-tools" data-category="AI Software &amp; Tools">
+            <span class="category-icon" aria-hidden="true"><i data-lucide="sparkles"></i></span>
+            <h3 class="category-name">AI Software &amp; Tools</h3>
+            <p class="category-desc">Chatbots, coding assistants, and creative AI platforms.</p>
+            <span class="category-count" data-category-count="AI Software &amp; Tools"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. PRODUCT DISCOVERY
+    ============================================================= -->
+    <section class="section products-section" id="products">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Catalogue</p>
+            <h2 class="section-title">Product Discovery</h2>
+            <p class="section-subtitle">
+              Filter by category, brand, price, retailer, and availability to find what fits
+              your requirements.
+            </p>
+          </div>
+        </header>
+
+        <!-- Filter toolbar -->
+        <div class="filters-bar">
+          <button
+            type="button"
+            class="btn btn-outline filters-toggle"
+            id="filtersToggle"
+            aria-expanded="true"
+            aria-controls="filtersPanel"
+          >
+            <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+            Filters
+          </button>
+
+          <div class="filters-search">
+            <i data-lucide="search" aria-hidden="true"></i>
+            <label class="sr-only" for="filterSearchInput">Search within products</label>
+            <input
+              type="search"
+              id="filterSearchInput"
+              class="input"
+              placeholder="Search products, brands, keywords…"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="filters-sort">
+            <label class="sr-only" for="sortSelect">Sort products</label>
+            <select id="sortSelect" class="select">
+              <option value="name" selected>Product Name (A–Z)</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="products-layout">
+          <!-- Filter panel -->
+          <aside class="filters-panel" id="filtersPanel" aria-label="Product filters">
+            <div class="filter-group">
+              <h3 class="filter-title">Category</h3>
+              <label class="sr-only" for="filterCategory">Filter by category</label>
+              <select id="filterCategory" class="select">
+                <option value="all" selected>All categories</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Smartphones">Smartphones</option>
+                <option value="PC Components">PC Components</option>
+                <option value="Monitors">Monitors</option>
+                <option value="Keyboards &amp; Mice">Keyboards &amp; Mice</option>
+                <option value="Headphones &amp; Audio">Headphones &amp; Audio</option>
+                <option value="Gaming Accessories">Gaming Accessories</option>
+                <option value="Desk Setup">Desk Setup</option>
+                <option value="Storage Devices">Storage Devices</option>
+                <option value="Networking Devices">Networking Devices</option>
+                <option value="Smart Devices">Smart Devices</option>
+                <option value="AI Software &amp; Tools">AI Software &amp; Tools</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Brand</h3>
+              <label class="sr-only" for="filterBrand">Filter by brand</label>
+              <select id="filterBrand" class="select">
+                <option value="all" selected>All brands</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Price range</h3>
+              <div class="price-range">
+                <div class="price-field">
+                  <label class="sr-only" for="filterPriceMin">Minimum price</label>
+                  <input
+                    type="number"
+                    id="filterPriceMin"
+                    class="input"
+                    placeholder="Min"
+                    min="0"
+                    step="10"
+                    inputmode="numeric"
+                  />
+                </div>
+                <span class="price-sep" aria-hidden="true">–</span>
+                <div class="price-field">
+                  <label class="sr-only" for="filterPriceMax">Maximum price</label>
+                  <input
+                    type="number"
+                    id="filterPriceMax"
+                    class="input"
+                    placeholder="Max"
+                    min="0"
+                    step="10"
+                    inputmode="numeric"
+                  />
+                </div>
+              </div>
+              <p class="filter-hint" id="priceHint">Prices shown in the selected display currency.</p>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Retailer</h3>
+              <label class="sr-only" for="filterRetailer">Filter by retailer</label>
+              <select id="filterRetailer" class="select">
+                <option value="all" selected>All retailers</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Availability</h3>
+              <label class="sr-only" for="filterAvailability">Filter by availability</label>
+              <select id="filterAvailability" class="select">
+                <option value="all" selected>All availability</option>
+                <option value="in-stock">In stock</option>
+                <option value="limited">Limited stock</option>
+                <option value="pre-order">Pre-order</option>
+                <option value="out-of-stock">Out of stock</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title">Product type</h3>
+              <label class="sr-only" for="filterType">Filter by product type</label>
+              <select id="filterType" class="select">
+                <option value="all" selected>All types</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Headphones">Headphones</option>
+                <option value="Keyboard">Keyboard</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Monitor">Monitor</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-outline btn-block" id="resetFiltersBtn">
+              <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+              Reset filters
+            </button>
+
+            <p class="filters-note">
+              All prices displayed during this prototype are clearly labelled development
+              data and are not live retailer prices.
+            </p>
+          </aside>
+
+          <!-- Product results -->
+          <div class="products-main">
+            <div class="results-bar">
+              <p class="results-count" id="resultsCount" role="status" aria-live="polite">
+                Loading products…
+              </p>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+
+            <div class="empty-state" id="productEmptyState" hidden>
+              <span class="empty-icon" aria-hidden="true"><i data-lucide="search-x"></i></span>
+              <h3 class="empty-title">No products match your filters</h3>
+              <p class="empty-text">
+                Try removing a filter, widening the price range, or searching with a
+                different keyword.
+              </p>
+              <button type="button" class="btn btn-primary" id="emptyResetBtn">
+                Reset all filters
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. 30-SECOND SETUP FINDER
+    ============================================================= -->
+    <section class="section finder-section" id="finder">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <div>
+            <p class="section-eyebrow">Guided Setup Finder</p>
+            <h2 class="section-title">Find Your Perfect Tech Setup</h2>
+            <p class="section-subtitle">
+              Answer a few questions and discover a setup that matches your needs and budget.
+            </p>
+          </div>
+        </header>
+
+        <div class="finder-card">
+          <form id="finderForm" class="finder-form" novalidate>
+            <!-- Question 1 -->
+            <fieldset class="finder-step">
+              <legend class="finder-legend">
+                <span class="step-num" aria-hidden="true">1</span>
+                What do you need your setup for?
+              </legend>
+              <div class="chip-group">
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="study" checked />
+                  <span>University / Study</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="programming" />
+                  <span>Programming</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="ai" />
+                  <span>AI / Machine Learning</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="gaming" />
+                  <span>Gaming</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="video" />
+                  <span>Video Editing</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="content" />
+                  <span>Content Creation</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="office" />
+                  <span>Office / Business</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderPurpose" value="general" />
+                  <span>General Use</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Question 2 -->
+            <fieldset class="finder-step">
+              <legend class="finder-legend">
+                <span class="step-num" aria-hidden="true">2</span>
+                What is your approximate budget?
+              </legend>
+              <label class="sr-only" for="finderBudget">Approximate budget</label>
+              <select id="finderBudget" name="finderBudget" class="select finder-select">
+                <option value="under-500" selected>Under $500</option>
+                <option value="500-1000">$500 – $1,000</option>
+                <option value="1000-2000">$1,000 – $2,000</option>
+                <option value="2000-3500">$2,000 – $3,500</option>
+                <option value="3500-plus">$3,500 and above</option>
+              </select>
+              <p class="finder-hint">
+                Budget bands are approximate reference values in USD. Displayed prices follow
+                the currency selector in the header.
+              </p>
+            </fieldset>
+
+            <!-- Question 3 -->
+            <fieldset class="finder-step">
+              <legend class="finder-legend">
+                <span class="step-num" aria-hidden="true">3</span>
+                Which setup do you need?
+              </legend>
+              <div class="chip-group">
+                <label class="chip">
+                  <input type="radio" name="finderType" value="laptop" checked />
+                  <span>Laptop</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderType" value="desktop" />
+                  <span>Desktop PC</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderType" value="desk" />
+                  <span>Complete Desk Setup</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderType" value="accessories" />
+                  <span>Accessories</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderType" value="software" />
+                  <span>Software / AI Tools</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Question 4 -->
+            <fieldset class="finder-step">
+              <legend class="finder-legend">
+                <span class="step-num" aria-hidden="true">4</span>
+                What is your experience level?
+              </legend>
+              <div class="chip-group">
+                <label class="chip">
+                  <input type="radio" name="finderLevel" value="beginner" checked />
+                  <span>Beginner</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderLevel" value="intermediate" />
+                  <span>Intermediate</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderLevel" value="advanced" />
+                  <span>Advanced</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="finderLevel" value="professional" />
+                  <span>Professional</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="finder-actions">
+              <button type="submit" class="btn btn-primary btn-lg" id="finderSubmitBtn">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Show my setup
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline btn-lg"
+                id="finderRestartBtn"
+                hidden
+              >
+                <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+                Start over
+              </button>
+            </div>
+          </form>
+
+          <div class="finder-results" id="finderResults" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. PRODUCT COMPARISON
+    ============================================================= -->
+    <section class="section compare-section" id="compare">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Side by side</p>
+            <h2 class="section-title">Product Comparison</h2>
+            <p class="section-subtitle">
+              Compare 2–4 products across the specifications that matter for your use case.
+            </p>
+          </div>
+        </header>
+
+        <div class="compare-controls">
+          <div class="compare-add">
+            <label class="sr-only" for="compareProductSelect">Add a product to compare</label>
+            <select id="compareProductSelect" class="select">
+              <option value="">Select a product…</option>
+            </select>
+            <button type="button" class="btn btn-primary" id="compareAddBtn">
+              <i data-lucide="plus" aria-hidden="true"></i>
+              Add to compare
+            </button>
+          </div>
+
+          <button type="button" class="btn btn-outline" id="compareClearBtn">
+            <i data-lucide="trash-2" aria-hidden="true"></i>
+            Clear comparison
+          </button>
+        </div>
+
+        <div class="compare-table-wrap" id="compareTableWrap" hidden></div>
+
+        <div class="empty-state" id="compareEmptyState">
+          <span class="empty-icon" aria-hidden="true"><i data-lucide="git-compare"></i></span>
+          <h3 class="empty-title">Nothing to compare yet</h3>
+          <p class="empty-text">
+            Add two to four products using the selector above, or use the “Compare” button on
+            any product card.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11. WISHLIST
+    ============================================================= -->
+    <section class="section wishlist-section" id="wishlist">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Saved for later</p>
+            <h2 class="section-title">Your Wishlist</h2>
+            <p class="section-subtitle">
+              Saved locally in your browser. No account required for this version.
+            </p>
+          </div>
+          <button type="button" class="btn btn-outline" id="clearWishlistBtn">
+            <i data-lucide="trash-2" aria-hidden="true"></i>
+            Clear wishlist
+          </button>
+        </header>
+
+        <div class="wishlist-grid" id="wishlistGrid"></div>
+
+        <div class="empty-state" id="wishlistEmptyState">
+          <span class="empty-icon" aria-hidden="true"><i data-lucide="heart-off"></i></span>
+          <h3 class="empty-title">Your wishlist is empty</h3>
+          <p class="empty-text">
+            Tap the heart icon on any product card to save it here for later.
+          </p>
+          <a href="#products" class="btn btn-primary">Browse products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. TECH SETUP BUNDLES
+    ============================================================= -->
+    <section class="section bundles-section" id="bundles">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Curated combinations</p>
+            <h2 class="section-title">Tech Setup Bundles</h2>
+            <p class="section-subtitle">
+              Ready-made combinations for common workflows. Totals are shown only when every
+              included product has a reliable price in the same currency.
+            </p>
+          </div>
+        </header>
+
+        <div class="bundles-grid" id="bundlesGrid"></div>
+
+        <div class="empty-state" id="bundlesEmptyState" hidden>
+          <span class="empty-icon" aria-hidden="true"><i data-lucide="package-open"></i></span>
+          <h3 class="empty-title">Bundles are unavailable</h3>
+          <p class="empty-text">
+            We couldn't load the setup bundles right now. Please refresh the page.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         13. AI TOOLS DIRECTORY
+    ============================================================= -->
+    <section class="section ai-tools-section" id="ai-tools">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Directory</p>
+            <h2 class="section-title">AI Tools Directory</h2>
+            <p class="section-subtitle">
+              Explore AI software by category and pricing model. Affiliate status is only
+              listed when it has been verified.
+            </p>
+          </div>
+        </header>
+
+        <div class="ai-tools-toolbar">
+          <div class="ai-filter">
+            <label class="sr-only" for="aiCategoryFilter">Filter AI tools by category</label>
+            <select id="aiCategoryFilter" class="select">
+              <option value="all" selected>All categories</option>
+              <option value="AI Chatbots">AI Chatbots</option>
+              <option value="AI Writing">AI Writing</option>
+              <option value="AI Coding">AI Coding</option>
+              <option value="AI Image Generation">AI Image Generation</option>
+              <option value="AI Video Generation">AI Video Generation</option>
+              <option value="AI Automation">AI Automation</option>
+              <option value="AI Research">AI Research</option>
+              <option value="AI Productivity">AI Productivity</option>
+              <option value="AI Design">AI Design</option>
+              <option value="AI Business Tools">AI Business Tools</option>
+            </select>
+          </div>
+
+          <div class="ai-filter">
+            <label class="sr-only" for="aiPricingFilter">Filter AI tools by pricing model</label>
+            <select id="aiPricingFilter" class="select">
+              <option value="all" selected>All pricing models</option>
+              <option value="Free">Free</option>
+              <option value="Freemium">Freemium</option>
+              <option value="Paid">Paid</option>
+              <option value="Free trial">Free trial</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-outline" id="aiToolsResetBtn">
+            <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+            Reset
+          </button>
+        </div>
+
+        <div class="ai-tools-grid" id="aiToolsGrid"></div>
+
+        <div class="empty-state" id="aiToolsEmptyState" hidden>
+          <span class="empty-icon" aria-hidden="true"><i data-lucide="search-x"></i></span>
+          <h3 class="empty-title">No AI tools match your filters</h3>
+          <p class="empty-text">Reset the filters to browse the full directory.</p>
+          <button type="button" class="btn btn-primary" id="aiToolsEmptyResetBtn">
+            Reset filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         14. BUYING GUIDES
+    ============================================================= -->
+    <section class="section guides-section" id="guides">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-eyebrow">Editorial</p>
+            <h2 class="section-title">Buying Guides</h2>
+            <p class="section-subtitle">
+              Practical, specification-focused explanations to help you decide with context.
+            </p>
+          </div>
+        </header>
+
+        <div class="guides-grid" id="guidesGrid">
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">Laptops</span>
+              <span class="guide-read">7 min read</span>
+            </div>
+            <h3 class="guide-title">Best Laptop Specifications for Computer Science Students</h3>
+            <p class="guide-intro">
+              Which CPU, RAM, and storage tiers actually matter for coursework, IDEs,
+              containers, and long compile sessions — and where you can safely save money.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="cs-laptop-specs">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">Components</span>
+              <span class="guide-read">6 min read</span>
+            </div>
+            <h3 class="guide-title">How Much RAM Do You Actually Need?</h3>
+            <p class="guide-intro">
+              A workload-based breakdown of 8 GB, 16 GB, 32 GB, and 64 GB, with honest
+              guidance on browser tabs, virtual machines, and AI tooling.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="how-much-ram">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">Storage</span>
+              <span class="guide-read">5 min read</span>
+            </div>
+            <h3 class="guide-title">SSD vs HDD: What Should You Choose?</h3>
+            <p class="guide-intro">
+              Understand the real differences in speed, durability, noise, and cost per
+              gigabyte, plus when a hybrid approach still makes sense.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="ssd-vs-hdd">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">Laptops</span>
+              <span class="guide-read">8 min read</span>
+            </div>
+            <h3 class="guide-title">How to Choose a Laptop for Programming</h3>
+            <p class="guide-intro">
+              Keyboard, display, thermals, ports, and battery life explained from a developer
+              workflow perspective rather than a benchmark sheet.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="laptop-for-programming">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">Desk Setup</span>
+              <span class="guide-read">6 min read</span>
+            </div>
+            <h3 class="guide-title">Best Budget Desk Setup for Students</h3>
+            <p class="guide-intro">
+              Build a comfortable, functional study desk with a sensible priority order:
+              seating, display, input devices, then lighting and storage.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="budget-desk-setup">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">Monitors</span>
+              <span class="guide-read">7 min read</span>
+            </div>
+            <h3 class="guide-title">How to Choose a Monitor for Productivity</h3>
+            <p class="guide-intro">
+              Resolution, panel type, size, ergonomics, and USB-C hub capability — what
+              actually improves long working sessions.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="monitor-for-productivity">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">PC Building</span>
+              <span class="guide-read">9 min read</span>
+            </div>
+            <h3 class="guide-title">Beginner's Guide to PC Components</h3>
+            <p class="guide-intro">
+              A plain-language tour of CPU, GPU, motherboard, RAM, storage, PSU, and cooling,
+              with the compatibility checks that matter most.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="pc-components-beginner">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-top">
+              <span class="tag">AI Tools</span>
+              <span class="guide-read">6 min read</span>
+            </div>
+            <h3 class="guide-title">Choosing the Right AI Tools for Your Workflow</h3>
+            <p class="guide-intro">
+              How to evaluate AI tools by task fit, data handling, cost model, and how easily
+              you can leave — before committing to a subscription.
+            </p>
+            <button type="button" class="btn btn-ghost btn-sm" data-guide-id="choosing-ai-tools">
+              Read guide <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         15. NEWSLETTER (single form on the page)
+    ============================================================= -->
+    <section class="section newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-copy">
+            <h2 class="newsletter-title">Stay Ahead of Technology.</h2>
+            <p class="newsletter-text">
+              Get useful technology insights, buying guides, and product updates in your inbox.
+            </p>
+          </div>
+
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <label class="sr-only" for="newsletterEmail">Email address</label>
+            <div class="newsletter-field">
+              <i data-lucide="mail" aria-hidden="true"></i>
+              <input
+                type="email"
+                id="newsletterEmail"
+                name="newsletterEmail"
+                class="input newsletter-input"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="btn btn-primary" id="newsletterSubmitBtn">
+                Subscribe
+              </button>
+            </div>
+            <p
+              class="newsletter-status"
+              id="newsletterStatus"
+              role="status"
+              aria-live="polite"
+            ></p>
+            <p class="newsletter-note">
+              Newsletter delivery is not connected in this version. The form validates your
+              input only and is ready for a secure backend integration.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       16. FOOTER
+  ============================================================= -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1 -->
+        <div class="footer-col footer-brand-col">
+          <a class="brand brand--footer" href="#home" aria-label="TechVault AI — home">
+            <span class="brand-mark" aria-hidden="true">
+              <i data-lucide="vault"></i>
+            </span>
+            <span class="brand-text">TechVault<span class="brand-accent">AI</span></span>
+          </a>
+          <p class="footer-mission">
+            Independent tech and AI curation. Built for builders, students, and creators.
+          </p>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <h3 class="footer-title">Categories</h3>
+          <ul class="footer-list">
+            <li><a class="footer-link" href="#products" data-category-link="Laptops">Laptops</a></li>
+            <li><a class="footer-link" href="#products" data-category-link="Headphones &amp; Audio">Audio</a></li>
+            <li><a class="footer-link" href="#products" data-category-link="Desk Setup">Desk Setup</a></li>
+            <li><a class="footer-link" href="#products" data-category-link="PC Components">PC Components</a></li>
+            <li><a class="footer-link" href="#ai-tools">AI Directory</a></li>
+            <li><a class="footer-link" href="#guides">Buying Guides</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <h3 class="footer-title">Transparency</h3>
+          <ul class="footer-list">
+            <li>
+              <button type="button" class="footer-link footer-link-btn" data-policy="selection">
+                How We Select Products
+              </button>
+            </li>
+            <li>
+              <button type="button" class="footer-link footer-link-btn" data-policy="affiliate">
+                Affiliate Disclosure
+              </button>
+            </li>
+            <li>
+              <button type="button" class="footer-link footer-link-btn" data-policy="editorial">
+                Editorial Policy
+              </button>
+            </li>
+            <li>
+              <button type="button" class="footer-link footer-link-btn" data-policy="privacy">
+                Privacy Policy
+              </button>
+            </li>
+            <li>
+              <button type="button" class="footer-link footer-link-btn" data-policy="terms">
+                Terms &amp; Conditions
+              </button>
+            </li>
+            <li>
+              <button type="button" class="footer-link footer-link-btn" data-policy="contact">
+                Contact
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+          <h3 class="footer-title">Social Media</h3>
+          <ul class="footer-social-list">
+            <li>
+              <a
+                class="footer-social-link"
+                href="#"
+                data-placeholder-url="instagram"
+                aria-label="Instagram (placeholder link — configure before launch)"
+              >
+                <i data-lucide="instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="footer-social-link"
+                href="#"
+                data-placeholder-url="facebook"
+                aria-label="Facebook (placeholder link — configure before launch)"
+              >
+                <i data-lucide="facebook" aria-hidden="true"></i>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="footer-social-link"
+                href="#"
+                data-placeholder-url="pinterest"
+                aria-label="Pinterest (placeholder link — configure before launch)"
+              >
+                <svg
+                  class="footer-social-icon"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.32-.09-.79-.17-2 .03-2.87.19-.78 1.2-5.06 1.2-5.06s-.3-.61-.3-1.51c0-1.42.82-2.48 1.85-2.48.87 0 1.29.65 1.29 1.44 0 .88-.56 2.19-.85 3.41-.24 1.02.51 1.85 1.51 1.85 1.81 0 3.2-1.91 3.2-4.67 0-2.44-1.75-4.15-4.26-4.15-2.9 0-4.6 2.17-4.6 4.42 0 .88.34 1.82.76 2.33.08.1.09.19.07.29-.08.31-.25 1.02-.28 1.16-.04.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.91 0-3.18 2.31-6.1 6.66-6.1 3.5 0 6.22 2.49 6.22 5.82 0 3.47-2.19 6.27-5.23 6.27-1.02 0-1.98-.53-2.31-1.16 0 0-.5 1.93-.63 2.4-.23.87-.85 1.96-1.27 2.63.96.29 1.97.45 3.03.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"
+                  />
+                </svg>
+                <span>Pinterest</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="footer-social-link"
+                href="#"
+                data-placeholder-url="github"
+                aria-label="GitHub (placeholder link — configure before launch)"
+              >
+                <i data-lucide="github" aria-hidden="true"></i>
+                <span>GitHub</span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="footer-note">
+            Social links are placeholders and must be replaced with official profiles before
+            launch.
+          </p>
+        </div>
+      </div>
+
+      <!-- Affiliate disclosure -->
+      <div class="footer-disclosure">
+        <h3 class="footer-disclosure-title">Affiliate Disclosure</h3>
+        <p class="footer-disclosure-text">
+          TechVault AI may earn a commission when you purchase through certain affiliate
+          links. This does not increase the price you pay. Affiliate relationships do not
+          determine our product rankings. No affiliate links are active in this version.
+        </p>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © <span id="footerYear">2025</span> TechVault AI. All rights reserved.
+        </p>
+        <ul class="footer-bottom-links">
+          <li>
+            <button type="button" class="footer-link footer-link-btn" data-policy="privacy">
+              Privacy Policy
+            </button>
+          </li>
+          <li>
+            <button type="button" class="footer-link footer-link-btn" data-policy="terms">
+              Terms &amp; Conditions
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       PRODUCT DETAIL MODAL
+  ============================================================= -->
+  <div
+    class="modal"
+    id="productModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    hidden
+  >
+    <div class="modal-backdrop" data-close-modal="productModal"></div>
+    <div class="modal-panel modal-panel--wide" role="document">
+      <button
+        type="button"
+        class="modal-close"
+        id="productModalClose"
+        aria-label="Close product details"
+      >
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+
+      <div class="modal-body" id="productModalBody">
+        <div class="product-detail">
+          <div class="product-detail-media">
+            <img id="modalImage" class="product-detail-img" src="" alt="" loading="lazy" />
+            <p class="product-detail-img-note" id="modalImageNote"></p>
+          </div>
+
+          <div class="product-detail-info">
+            <p class="product-detail-meta">
+              <span id="modalBrand"></span>
+              <span class="dot" aria-hidden="true">•</span>
+              <span id="modalCategory"></span>
+            </p>
+            <h2 class="product-detail-title" id="modalTitle"></h2>
+            <p class="product-detail-model">
+              Model: <span id="modalModel"></span>
+            </p>
+            <p class="product-detail-desc" id="modalDescription"></p>
+
+            <div class="product-detail-price">
+              <span class="price-label">Reference price</span>
+              <span class="price-value" id="modalPrice"></span>
+              <span class="data-flag" id="modalPriceFlag"></span>
+            </div>
+
+            <div class="product-detail-actions">
+              <button type="button" class="btn btn-primary" id="modalWishlistBtn">
+                <i data-lucide="heart" aria-hidden="true"></i>
+                <span id="modalWishlistLabel">Add to wishlist</span>
+              </button>
+              <button type="button" class="btn btn-outline" id="modalCompareBtn">
+                <i data-lucide="git-compare" aria-hidden="true"></i>
+                <span id="modalCompareLabel">Add to compare</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-detail-grid">
+          <section class="detail-block">
+            <h3 class="detail-title">Technical Specifications</h3>
+            <table class="spec-table">
+              <caption class="sr-only">Technical specifications</caption>
+              <tbody id="modalSpecs"></tbody>
+            </table>
+          </section>
+
+          <section class="detail-block">
+            <h3 class="detail-title">Highlights</h3>
+            <ul class="bullet-list" id="modalHighlights"></ul>
+          </section>
+
+          <section class="detail-block">
+            <h3 class="detail-title">Pros</h3>
+            <ul class="bullet-list bullet-list--pros" id="modalPros"></ul>
+          </section>
+
+          <section class="detail-block">
+            <h3 class="detail-title">Cons</h3>
+            <ul class="bullet-list bullet-list--cons" id="modalCons"></ul>
+          </section>
+
+          <section class="detail-block">
+            <h3 class="detail-title">Who Should Buy This?</h3>
+            <p class="detail-text" id="modalBestFor"></p>
+          </section>
+
+          <section class="detail-block">
+            <h3 class="detail-title">Who Should NOT Buy This?</h3>
+            <p class="detail-text" id="modalNotFor"></p>
+          </section>
+        </div>
+
+        <section class="detail-block">
+          <h3 class="detail-title">Available Retailer Offers</h3>
+          <p class="detail-note">
+            Offer data below is development sample data unless marked as verified. Prices are
+            not live retailer prices and no affiliate links are active in this version.
+          </p>
+          <div class="offers-table-wrap">
+            <table class="offers-table">
+              <caption class="sr-only">Retailer offers for this product</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Retailer</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Availability</th>
+                  <th scope="col">Region</th>
+                  <th scope="col">Last checked</th>
+                  <th scope="col">Data status</th>
+                </tr>
+              </thead>
+              <tbody id="modalOffers"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="detail-block">
+          <h3 class="detail-title">Related Products</h3>
+          <div class="related-grid" id="modalRelated"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GUIDE MODAL
+  ============================================================= -->
+  <div
+    class="modal"
+    id="guideModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="guideModalTitle"
+    hidden
+  >
+    <div class="modal-backdrop" data-close-modal="guideModal"></div>
+    <div class="modal-panel" role="document">
+      <button
+        type="button"
+        class="modal-close"
+        id="guideModalClose"
+        aria-label="Close buying guide"
+      >
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <div class="modal-body">
+        <p class="guide-modal-meta" id="guideModalMeta"></p>
+        <h2 class="guide-modal-title" id="guideModalTitle"></h2>
+        <div class="guide-modal-content" id="guideModalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       INFO / POLICY MODAL
+  ============================================================= -->
+  <div
+    class="modal"
+    id="infoModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="infoModalTitle"
+    hidden
+  >
+    <div class="modal-backdrop" data-close-modal="infoModal"></div>
+    <div class="modal-panel" role="document">
+      <button
+        type="button"
+        class="modal-close"
+        id="infoModalClose"
+        aria-label="Close information panel"
+      >
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <div class="modal-body">
+        <h2 class="info-modal-title" id="infoModalTitle"></h2>
+        <div class="info-modal-body" id="infoModalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <noscript>
+    <div class="noscript-notice">
+      TechVault AI uses JavaScript for product filtering, comparison, the wishlist, and the
+      setup finder. Please enable JavaScript to use these features.
+    </div>
+  </noscript>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Application script (Stage 3) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
