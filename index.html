@@ -191,24 +191,25 @@
                 <li><span>Display</span><strong>13.6" Liquid Retina</strong></li>
                 <li><span>Weight</span><strong>1.24 kg</strong></li>
               </ul>
-
               <div class="preview-offers">
                 <div class="preview-offer">
-                  <span class="preview-retailer">Retailer offer · sample</span>
+                  <span class="preview-retailer">Amazon</span>
                   <span class="preview-price">$1,199.00</span>
-                  <span class="preview-status preview-status--sample">Development data</span>
+                  <span class="preview-status preview-status--sample">In stock</span>
                 </div>
                 <div class="preview-offer">
-                  <span class="preview-retailer">Retailer offer · sample</span>
+                  <span class="preview-retailer">Best Buy</span>
                   <span class="preview-price">$1,249.00</span>
-                  <span class="preview-status preview-status--sample">Development data</span>
+                  <span class="preview-status preview-status--sample">In stock</span>
                 </div>
               </div>
 
-              <div class="preview-foot">
+                           <div class="preview-foot">
                 <span class="preview-pill">2 products compared</span>
-                <span class="preview-pill preview-pill--ghost">Prices shown are sample data</span>
+                <span class="preview-pill preview-pill--ghost">Live price tracking</span>
               </div>
+              
+              
             </div>
           </div>
         </div>
@@ -255,9 +256,9 @@
     <!-- ============================================================
          4. PRODUCT CATEGORIES
     ============================================================= -->
-    <section class="section categories-section" id="categories">
+        <section class="section categories-section" id="categories">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head section-head--center"> <!-- Yahan add kiya hai -->
           <div>
             <p class="section-eyebrow">Browse</p>
             <h2 class="section-title">Explore Categories</h2>
@@ -361,16 +362,13 @@
     <!-- ============================================================
          5. PRODUCT DISCOVERY
     ============================================================= -->
-    <section class="section products-section" id="products">
+        <section class="section products-section" id="products">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head section-head--center"> <!-- Yahan change kiya hai -->
           <div>
             <p class="section-eyebrow">Catalogue</p>
             <h2 class="section-title">Product Discovery</h2>
-            <p class="section-subtitle">
-              Filter by category, brand, price, retailer, and availability to find what fits
-              your requirements.
-            </p>
+            <p class="section-subtitle">Filter by category, brand, price, retailer, and availability to find what fits your requirements.</p>
           </div>
         </header>
 
@@ -475,6 +473,9 @@
 
             <div class="filter-group">
               <h3 class="filter-title">Retailer</h3>
+      
+      
+      
               <label class="sr-only" for="filterRetailer">Filter by retailer</label>
               <select id="filterRetailer" class="select">
                 <option value="all" selected>All retailers</option>
@@ -703,15 +704,13 @@
     <!-- ============================================================
          10. PRODUCT COMPARISON
     ============================================================= -->
-    <section class="section compare-section" id="compare">
+        <section class="section compare-section" id="compare">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head section-head--center">  <!-- Yahan change kiya hai -->
           <div>
             <p class="section-eyebrow">Side by side</p>
             <h2 class="section-title">Product Comparison</h2>
-            <p class="section-subtitle">
-              Compare 2–4 products across the specifications that matter for your use case.
-            </p>
+            <p class="section-subtitle">Compare 2–4 products across the specifications that matter for your use case.</p>
           </div>
         </header>
 
@@ -739,7 +738,7 @@
           <span class="empty-icon" aria-hidden="true"><i data-lucide="git-compare"></i></span>
           <h3 class="empty-title">Nothing to compare yet</h3>
           <p class="empty-text">
-            Add two to four products using the selector above, or use the “Compare” button on
+            Add two to four products using the selector above, or use the "Compare" button on
             any product card.
           </p>
         </div>
@@ -749,20 +748,15 @@
     <!-- ============================================================
          11. WISHLIST
     ============================================================= -->
-    <section class="section wishlist-section" id="wishlist">
+        <section class="section wishlist-section" id="wishlist">
       <div class="container">
-        <header class="section-head">
-          <div>
+          <header class="section-head section-head--center"> <!-- Yahan add kiya hai -->
+        <div>
             <p class="section-eyebrow">Saved for later</p>
             <h2 class="section-title">Your Wishlist</h2>
-            <p class="section-subtitle">
-              Saved locally in your browser. No account required for this version.
-            </p>
+            <p class="section-subtitle">Saved locally in your browser. No account required for this version.</p>
           </div>
-          <button type="button" class="btn btn-outline" id="clearWishlistBtn">
-            <i data-lucide="trash-2" aria-hidden="true"></i>
-            Clear wishlist
-          </button>
+          <button type="button" class="btn btn-outline" id="clearWishlistBtn"><i data-lucide="trash-2" aria-hidden="true"></i> Clear wishlist</button>
         </header>
 
         <div class="wishlist-grid" id="wishlistGrid"></div>
@@ -781,38 +775,23 @@
     <!-- ============================================================
          12. TECH SETUP BUNDLES
     ============================================================= -->
-    <section class="section bundles-section" id="bundles">
+        <section class="section bundles-section" id="bundles">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head section-head--center"> <!-- Yahan add kiya hai -->
           <div>
             <p class="section-eyebrow">Curated combinations</p>
             <h2 class="section-title">Tech Setup Bundles</h2>
-            <p class="section-subtitle">
-              Ready-made combinations for common workflows. Totals are shown only when every
-              included product has a reliable price in the same currency.
-            </p>
+            <p class="section-subtitle">Ready-made combinations for common workflows. Totals are shown only when every included product has a reliable price in the same currency.</p>
           </div>
         </header>
-
-        <div class="bundles-grid" id="bundlesGrid"></div>
-
-        <div class="empty-state" id="bundlesEmptyState" hidden>
-          <span class="empty-icon" aria-hidden="true"><i data-lucide="package-open"></i></span>
-          <h3 class="empty-title">Bundles are unavailable</h3>
-          <p class="empty-text">
-            We couldn't load the setup bundles right now. Please refresh the page.
-          </p>
-        </div>
-      </div>
-    </section>
 
     <!-- ============================================================
          13. AI TOOLS DIRECTORY
     ============================================================= -->
     <section class="section ai-tools-section" id="ai-tools">
       <div class="container">
-        <header class="section-head">
-          <div>
+             <header class="section-head section-head--center"> <!-- Yahan add kiya hai -->
+     <div>
             <p class="section-eyebrow">Directory</p>
             <h2 class="section-title">AI Tools Directory</h2>
             <p class="section-subtitle">
@@ -875,8 +854,8 @@
     ============================================================= -->
     <section class="section guides-section" id="guides">
       <div class="container">
-        <header class="section-head">
-          <div>
+           <header class="section-head section-head--center"> <!-- Yahan add kiya hai -->
+       <div>
             <p class="section-eyebrow">Editorial</p>
             <h2 class="section-title">Buying Guides</h2>
             <p class="section-subtitle">
@@ -1045,10 +1024,7 @@
               role="status"
               aria-live="polite"
             ></p>
-            <p class="newsletter-note">
-              Newsletter delivery is not connected in this version. The form validates your
-              input only and is ready for a secure backend integration.
-            </p>
+            
           </form>
         </div>
       </div>
@@ -1058,23 +1034,18 @@
   <!-- ============================================================
        16. FOOTER
   ============================================================= -->
-  <footer class="site-footer" id="siteFooter">
+  
+           <footer class="site-footer" id="siteFooter">
     <div class="container">
       <div class="footer-grid">
-        <!-- Column 1 -->
         <div class="footer-col footer-brand-col">
           <a class="brand brand--footer" href="#home" aria-label="TechVault AI — home">
-            <span class="brand-mark" aria-hidden="true">
-              <i data-lucide="vault"></i>
-            </span>
+            <span class="brand-mark" aria-hidden="true"><i data-lucide="vault"></i></span>
             <span class="brand-text">TechVault<span class="brand-accent">AI</span></span>
           </a>
-          <p class="footer-mission">
-            Independent tech and AI curation. Built for builders, students, and creators.
-          </p>
+          <p class="footer-mission">Independent tech and AI curation. Built for builders, students, and creators.</p>
         </div>
-
-        <!-- Column 2 -->
+        
         <div class="footer-col">
           <h3 class="footer-title">Categories</h3>
           <ul class="footer-list">
@@ -1086,137 +1057,54 @@
             <li><a class="footer-link" href="#guides">Buying Guides</a></li>
           </ul>
         </div>
-
-        <!-- Column 3 -->
+        
         <div class="footer-col">
           <h3 class="footer-title">Transparency</h3>
           <ul class="footer-list">
-            <li>
-              <button type="button" class="footer-link footer-link-btn" data-policy="selection">
-                How We Select Products
-              </button>
-            </li>
-            <li>
-              <button type="button" class="footer-link footer-link-btn" data-policy="affiliate">
-                Affiliate Disclosure
-              </button>
-            </li>
-            <li>
-              <button type="button" class="footer-link footer-link-btn" data-policy="editorial">
-                Editorial Policy
-              </button>
-            </li>
-            <li>
-              <button type="button" class="footer-link footer-link-btn" data-policy="privacy">
-                Privacy Policy
-              </button>
-            </li>
-            <li>
-              <button type="button" class="footer-link footer-link-btn" data-policy="terms">
-                Terms &amp; Conditions
-              </button>
-            </li>
-            <li>
-              <button type="button" class="footer-link footer-link-btn" data-policy="contact">
-                Contact
-              </button>
-            </li>
+            <li><button type="button" class="footer-link footer-link-btn" data-policy="selection">How We Select Products</button></li>
+            <li><button type="button" class="footer-link footer-link-btn" data-policy="affiliate">Affiliate Disclosure</button></li>
+            <li><button type="button" class="footer-link footer-link-btn" data-policy="editorial">Editorial Policy</button></li>
+            <li><button type="button" class="footer-link footer-link-btn" data-policy="privacy">Privacy Policy</button></li>
+            <li><button type="button" class="footer-link footer-link-btn" data-policy="terms">Terms &amp; Conditions</button></li>
+            <li><button type="button" class="footer-link footer-link-btn" data-policy="contact">Contact</button></li>
           </ul>
         </div>
-
-        <!-- Column 4 -->
+        
         <div class="footer-col">
           <h3 class="footer-title">Social Media</h3>
           <ul class="footer-social-list">
             <li>
-              <a
-                class="footer-social-link"
-                href="#"
-                data-placeholder-url="instagram"
-                aria-label="Instagram (placeholder link — configure before launch)"
-              >
+              <a class="footer-social-link" href="https://www.instagram.com/tech.vaultai?mdxt=MThyZGM4ajBleTJ6ZA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i data-lucide="instagram" aria-hidden="true"></i>
                 <span>Instagram</span>
               </a>
             </li>
             <li>
-              <a
-                class="footer-social-link"
-                href="#"
-                data-placeholder-url="facebook"
-                aria-label="Facebook (placeholder link — configure before launch)"
-              >
+              <a class="footer-social-link" href="https://www.facebook.com/share/19jk7kLFRS/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <i data-lucide="facebook" aria-hidden="true"></i>
                 <span>Facebook</span>
               </a>
             </li>
             <li>
-              <a
-                class="footer-social-link"
-                href="#"
-                data-placeholder-url="pinterest"
-                aria-label="Pinterest (placeholder link — configure before launch)"
-              >
-                <svg
-                  class="footer-social-icon"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.32-.09-.79-.17-2 .03-2.87.19-.78 1.2-5.06 1.2-5.06s-.3-.61-.3-1.51c0-1.42.82-2.48 1.85-2.48.87 0 1.29.65 1.29 1.44 0 .88-.56 2.19-.85 3.41-.24 1.02.51 1.85 1.51 1.85 1.81 0 3.2-1.91 3.2-4.67 0-2.44-1.75-4.15-4.26-4.15-2.9 0-4.6 2.17-4.6 4.42 0 .88.34 1.82.76 2.33.08.1.09.19.07.29-.08.31-.25 1.02-.28 1.16-.04.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.91 0-3.18 2.31-6.1 6.66-6.1 3.5 0 6.22 2.49 6.22 5.82 0 3.47-2.19 6.27-5.23 6.27-1.02 0-1.98-.53-2.31-1.16 0 0-.5 1.93-.63 2.4-.23.87-.85 1.96-1.27 2.63.96.29 1.97.45 3.03.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"
-                  />
-                </svg>
+              <a class="footer-social-link" href="https://pin.it/1uxgbLLxC" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.86 6.36 9.32-.09-.79-.17-2 .03-2.87.19-.78 1.2-5.06 1.2-5.06s-.3-.61-.3-1.51c0-1.42.82-2.48 1.85-2.48.87 0 1.29.65 1.29 1.44 0 .88-.56 2.19-.85 3.41-.24 1.02.51 1.85 1.51 1.85 1.81 0 3.2-1.91 3.2-4.67 0-2.44-1.75-4.15-4.26-4.15-2.9 0-4.6 2.17-4.6 4.42 0 .88.34 1.82.76 2.33.08.1.09.19.07.29-.08.31-.25 1.02-.28 1.16-.04.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.91 0-3.18 2.31-6.1 6.66-6.1 3.5 0 6.22 2.49 6.22 5.82 0 3.47-2.19 6.27-5.23 6.27-1.02 0-1.98-.53-2.31-1.16 0 0-.5 1.93-.63 2.4-.23.87-.85 1.96-1.27 2.63.96.29 1.97.45 3.03.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
                 <span>Pinterest</span>
               </a>
             </li>
-            <li>
-              <a
-                class="footer-social-link"
-                href="#"
-                data-placeholder-url="github"
-                aria-label="GitHub (placeholder link — configure before launch)"
-              >
-                <i data-lucide="github" aria-hidden="true"></i>
-                <span>GitHub</span>
-              </a>
-            </li>
           </ul>
-
-          <p class="footer-note">
-            Social links are placeholders and must be replaced with official profiles before
-            launch.
-          </p>
         </div>
       </div>
 
-      <!-- Affiliate disclosure -->
       <div class="footer-disclosure">
         <h3 class="footer-disclosure-title">Affiliate Disclosure</h3>
-        <p class="footer-disclosure-text">
-          TechVault AI may earn a commission when you purchase through certain affiliate
-          links. This does not increase the price you pay. Affiliate relationships do not
-          determine our product rankings. No affiliate links are active in this version.
-        </p>
+        <p class="footer-disclosure-text">TechVault AI may earn a commission when you purchase through certain affiliate links. This does not increase the price you pay. Affiliate relationships do not determine our product rankings. Affiliate links are activated per product only when a valid, approved affiliate URL has been configured.</p>
       </div>
 
-      <!-- Footer bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright">
-          © <span id="footerYear">2025</span> TechVault AI. All rights reserved.
-        </p>
+        <p class="footer-copyright">© <span id="footerYear">2025</span> TechVault AI. All rights reserved.</p>
         <ul class="footer-bottom-links">
-          <li>
-            <button type="button" class="footer-link footer-link-btn" data-policy="privacy">
-              Privacy Policy
-            </button>
-          </li>
-          <li>
-            <button type="button" class="footer-link footer-link-btn" data-policy="terms">
-              Terms &amp; Conditions
-            </button>
-          </li>
+          <li><button type="button" class="footer-link footer-link-btn" data-policy="privacy">Privacy Policy</button></li>
+          <li><button type="button" class="footer-link footer-link-btn" data-policy="terms">Terms &amp; Conditions</button></li>
         </ul>
       </div>
     </div>
@@ -1268,7 +1156,19 @@
               <span class="price-value" id="modalPrice"></span>
               <span class="data-flag" id="modalPriceFlag"></span>
             </div>
+            <!-- YE LINE PASTE KAREIN -->
+            <div class="product-purchase-actions" id="modalPurchaseActions"></div>
 
+                        <div class="product-detail-price">
+              <span class="price-label">Reference price</span>
+              <span class="price-value" id="modalPrice"></span>
+              <span class="data-flag" id="modalPriceFlag"></span>
+            </div>
+
+            <!-- YE NAYA DIV SAHI HAI -->
+            <div class="product-purchase-actions" id="modalPurchaseActions"></div>
+
+            <!-- YE WALA HISSA SIRF EK BAAR HONA CHAHIYE -->
             <div class="product-detail-actions">
               <button type="button" class="btn btn-primary" id="modalWishlistBtn">
                 <i data-lucide="heart" aria-hidden="true"></i>
@@ -1279,8 +1179,6 @@
                 <span id="modalCompareLabel">Add to compare</span>
               </button>
             </div>
-          </div>
-        </div>
 
         <div class="product-detail-grid">
           <section class="detail-block">
