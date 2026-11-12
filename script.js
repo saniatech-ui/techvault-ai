@@ -1,6 +1,5 @@
 /* ==========================================================================
-   TechVault AI — script.js
-   Stage 3 + Phase 2: Application logic + affiliate purchase buttons
+   TechVault AI — script.js (Final Complete Version)
    ========================================================================== */
 'use strict';
 
@@ -13,23 +12,17 @@ const STORAGE_KEYS = {
   currency: 'techvault.currency.v1'
 };
 
-/* ==========================================================================
-   >>> EDIT ZONE 1: AFFILIATE CONFIG <<<
-   Yahan apna Amazon Associate Tag daalo (jaise 'saniasarwar-20').
-   Jab tag daal do, `enabled: true` kar dena.
-   ========================================================================== */
 const AFFILIATE_CONFIG = {
   amazon: {
     enabled: true,
-    tag: 'saniasarwar-20',          // <-- Ye sahi hai
-    region: 'www.amazon.com'        // <-- Ye sahi hai
+    tag: 'saniasarwar-20',
+    region: 'www.amazon.com'
   },
-  aliExpress: {                     // <-- `...` hata kar seedha aliExpress aayega
+  aliExpress: {
     enabled: false,
     trackingId: 'YOUR_ALIEXPRESS_TRACKING_ID_HERE'
   }
 };
-
 
 const CURRENCY_RATES = {
   USD: 1, GBP: 0.79, EUR: 0.92, PKR: 278, CAD: 1.36, AUD: 1.52
@@ -48,12 +41,7 @@ const MAX_COMPARE = 4;
 
 /* --------------------------------------------------------------------------
    2. Product catalogue
-   ==========================================================================
-   >>> EDIT ZONE 2: HAR PRODUCT MEIN `amazonAsin` DAALO <<<
-   Amazon.com pe product dhundo, URL se 10-character ASIN copy karo.
-   Wahan `REPLACE_WITH_XXX_ASIN` ki jagah apna asli ASIN daal do.
-   Agar kisi product ka Amazon link nahi mila, `null` rakho.
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 const PRODUCTS = [
   {
     id: 'macbook-air-m5',
@@ -64,11 +52,11 @@ const PRODUCTS = [
     type: 'Laptop',
     description:
       'A thin and light ultrabook with Apple silicon, all-day battery life, and a fanless design suited to everyday productivity, coding, and creative work.',
-    priceUSD: 1099,
+    priceUSD: 1139,
     addedOrder: 1,
     image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80&auto=format&fit=crop',
     imageNote: 'Representative image — not the official product photo.',
-    amazonAsin: 'B0GR1JTFP8',
+    amazonAsin: 'B0HPGSTXX',
     amazonUrl: null,
     aliExpressUrl: null,
     specs: {
@@ -88,9 +76,9 @@ const PRODUCTS = [
     notFor: 'Buyers who need a dedicated GPU, high-refresh gaming panels, extensive port selection, or heavy 3D rendering in a single portable machine.',
     keywords: ['laptop', 'ultrabook', 'apple', 'm5', 'macos', 'student', 'developer', 'portable', 'thin', 'light'],
     offers: [
-      { retailer: 'Amazon', priceUSD: 1099, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' },
-      { retailer: 'Best Buy', priceUSD: 1099, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' },
-      { retailer: 'Walmart', priceUSD: 1199, availability: 'limited', region: 'US', lastChecked: null, dataStatus: 'sample' }
+      { retailer: 'Amazon', priceUSD: 1139, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' },
+      { retailer: 'Best Buy', priceUSD: 1139, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' },
+      { retailer: 'Walmart', priceUSD: 1159, availability: 'limited', region: 'US', lastChecked: null, dataStatus: 'sample' }
     ]
   },
   {
@@ -105,7 +93,7 @@ const PRODUCTS = [
     addedOrder: 2,
     image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800&q=80&auto=format&fit=crop',
     imageNote: 'Representative image — not the official product photo.',
-   amazonAsin: 'B09Y2MYL5C',
+    amazonAsin: 'B09Y2MYL5C',
     amazonUrl: null,
     aliExpressUrl: null,
     specs: {
@@ -121,8 +109,7 @@ const PRODUCTS = [
     highlights: ['Strong active noise cancellation', 'Comfortable lightweight design', 'Multipoint Bluetooth connection', 'Fast USB-C charging'],
     pros: ['Effective noise cancellation for commuting and open offices', 'Comfortable for long sessions', 'Good call quality with beamforming mics', 'Long battery life'],
     cons: ['No longer folds flat like the XM4', 'Premium price point', 'Touch controls can misfire in cold weather'],
-
-
+    bestFor: 'Commuters, students, and remote workers who want effective noise cancellation and long battery life from a single pair of headphones.',
     notFor: 'Buyers looking for audiophile-grade wired monitoring, foldable portability, or a budget option under $200.',
     keywords: ['headphones', 'wireless', 'anc', 'noise cancelling', 'sony', 'over-ear', 'commute', 'travel'],
     offers: [
@@ -142,7 +129,7 @@ const PRODUCTS = [
     addedOrder: 3,
     image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&q=80&auto=format&fit=crop',
     imageNote: 'Representative image — not the official product photo.',
-   amazonAsin: 'B09TRW9W3S',
+    amazonAsin: 'B09TRW9W3S',
     amazonUrl: null,
     aliExpressUrl: null,
     specs: {
@@ -166,26 +153,21 @@ const PRODUCTS = [
       { retailer: 'Keychron Store', priceUSD: 119.99, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' }
     ]
   },
-   {
-    id: 'logitech-mx-master-3s', // ID waise hi rehne dein
+  {
+    id: 'logitech-mx-master-4',
     name: 'Logitech MX Master 4',
     brand: 'Logitech',
     model: '910-006556',
     category: 'Keyboards & Mice',
     type: 'Mouse',
     description: 'A productivity-focused wireless mouse with advanced haptic feedback, ultra-fast scrolling, 8K DPI any-surface tracking, quiet clicks, and multi-device support.',
-    
-    priceUSD: 119.99, // <-- NAYI PRICE ($119.99)
-    
+    priceUSD: 119.99,
     addedOrder: 4,
     image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=800&q=80&auto=format&fit=crop',
     imageNote: 'Representative image — not the official product photo.',
-    
-    amazonAsin: 'B0FC5SJNQX', // <-- NAYA ASIN
-    
+    amazonAsin: 'B0FC5SJNQX',
     amazonUrl: null,
     aliExpressUrl: null,
-    
     specs: {
       Sensor: 'Darkfield, up to 8K DPI',
       Buttons: '7 programmable + Haptic feedback',
@@ -196,61 +178,52 @@ const PRODUCTS = [
       Compatibility: 'Windows, macOS, Linux, iPadOS',
       Extras: 'MagSpeed scroll wheel, thumbwheel'
     },
-    
     highlights: ['Advanced haptic feedback', 'MagSpeed electromagnetic scroll wheel', 'Quiet click buttons', 'Multi-device Logi Flow support'],
     pros: ['Excellent ergonomics for long sessions', 'New haptic feedback features', 'Reliable multi-device switching', 'Long battery life'],
     cons: ['Premium price point', 'Right-handed shape only', 'No Bluetooth if the dongle is lost (until re-paired)'],
     bestFor: 'Developers, designers, and office workers who want the most advanced, feature-rich productivity mouse available.',
     notFor: 'Left-handed users, competitive gamers who need a lightweight wired mouse, or buyers on a tight budget.',
     keywords: ['mouse', 'wireless', 'ergonomic', 'logitech', 'mx', 'productivity', 'bluetooth', 'multi-device', 'haptic'],
-    
     offers: [
       { retailer: 'Amazon', priceUSD: 119.99, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' }
     ]
-  },  
-   {
-    id: 'dell-ultrasharp-u2723qe', // ID waise hi rehne dein taake wishlist/compare na toote
+  },
+  {
+    id: 'dell-ultrasharp-u2723qe',
     name: 'Dell 27 S2725QC 4K Monitor',
     brand: 'Dell',
     model: 'S2725QC',
     category: 'Monitors',
     type: 'Monitor',
     description: 'A 27-inch 4K UHD IPS monitor with a fast 120Hz refresh rate, 99% sRGB color coverage, and integrated USB-C connectivity for professionals and gamers alike.',
-    
-    priceUSD: 349.99, // <-- NAYI PRICE ($349.99)
-    
+    priceUSD: 349.99,
     addedOrder: 5,
     image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&q=80&auto=format&fit=crop',
     imageNote: 'Representative image — not the official product photo.',
-    
-    amazonAsin: 'B0F1GFD44G', // <-- NAYA ASIN
-    
+    amazonAsin: 'B0F1GFD44G',
     amazonUrl: null,
     aliExpressUrl: null,
-    
     specs: {
       'Panel size': '27 inches',
       Resolution: '3840 × 2160 (4K UHD)',
       Panel: 'IPS',
-      'Refresh rate': '120 Hz', // <-- 120Hz update kiya
+      'Refresh rate': '120 Hz',
       'Colour coverage': '99% sRGB',
       'Response Time': '4ms',
       Features: 'FreeSync Premium, Anti-Glare, USB-C, HDMI, DisplayPort',
       Ergonomics: 'Height, tilt, swivel, pivot'
     },
-    
     highlights: ['4K UHD IPS panel', 'Smooth 120Hz refresh rate', '99% sRGB colour coverage', 'USB-C connectivity'],
     pros: ['Excellent value for a 4K monitor', 'Smooth 120Hz gaming experience', 'Strong color accuracy', 'Versatile connectivity options'],
     cons: ['Stand may take up desk space', 'Built-in speakers are basic'],
     bestFor: 'Professionals and gamers who want a sharp, smooth 4K display with USB-C connectivity without breaking the bank.',
     notFor: 'Buyers looking for color-critical professional work needing DCI-P3 coverage, or those needing built-in high-end speakers.',
     keywords: ['monitor', '4k', '27-inch', 'dell', 'usb-c', '120hz', 'gaming', 'productivity'],
-    
     offers: [
       { retailer: 'Amazon', priceUSD: 349.99, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' }
     ]
   },
-    {
+  {
     id: 'asus-rog-zephyrus-g14',
     name: 'ASUS ROG Zephyrus G14 AI Gaming',
     brand: 'ASUS',
@@ -258,34 +231,32 @@ const PRODUCTS = [
     category: 'Laptops',
     type: 'Laptop',
     description: 'A compact 14-inch gaming laptop with a dedicated GPU, high-refresh OLED display, and strong performance for gaming, AI development, and creative workloads.',
-    
-    priceUSD: 2049, // <-- PRICE UPDATE KAREIN ($2,049)
-    
+    priceUSD: 2049,
     addedOrder: 6,
     image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&q=80&auto=format&fit=crop',
     imageNote: 'Representative image — not the official product photo.',
-    
-    amazonAsin: 'B0HKS9ZF98', // <-- NAYA ASIN DAALEIN
-    
+    amazonAsin: 'B0HKS9ZF98',
     amazonUrl: null,
     aliExpressUrl: null,
-    
     specs: {
       Display: '14-inch OLED, 2880 × 1800, 120 Hz',
       CPU: 'AMD Ryzen 9 270',
       GPU: 'NVIDIA GeForce RTX 5060',
       Memory: '16 GB DDR5',
-      Storage: '512 GB SSD', // <-- Yahan 512GB kar dein
+      Storage: '512 GB SSD',
       Battery: '73 Wh',
       Weight: '1.5 kg (3.3 lb)',
       Ports: 'USB-C, USB-A, HDMI 2.1, microSD, 3.5 mm jack'
     },
-    
-    // ... (baaki highlights, pros, cons waise hi rehne dein)
-    
+    highlights: ['High-refresh OLED display', 'Dedicated RTX 5060 GPU', 'Compact 14-inch chassis', 'Strong CPU for developer and AI workloads'],
+    pros: ['High performance for its size', 'Excellent OLED display', 'Good port selection for a 14-inch laptop', 'Suitable for gaming, AI, and creative work'],
+    cons: ['Fan noise under sustained load', 'Battery life shorter than ultrabooks', 'Memory is soldered'],
+    bestFor: 'Gamers, AI enthusiasts, and creators who want strong performance in a 14-inch chassis and can accept higher fan noise under load.',
+    notFor: 'Buyers who need all-day battery life and silent operation, or who prioritise the lightest possible ultrabook.',
+    keywords: ['laptop', 'gaming', 'rog', 'asus', 'rtx', 'oled', 'ai', 'machine learning', 'creative', 'high performance'],
     offers: [
       { retailer: 'Amazon', priceUSD: 2049, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' },
-      // ... (baaki offers)
+      { retailer: 'Best Buy', priceUSD: 2049, availability: 'in-stock', region: 'US', lastChecked: null, dataStatus: 'sample' }
     ]
   }
 ];
@@ -427,14 +398,14 @@ const GUIDES = {
    5. Bundles
    -------------------------------------------------------------------------- */
 const BUNDLES = [
-  { id: 'student-essentials', title: 'Student Essentials Setup', tag: 'Student', description: 'A practical starting point for coursework and note-taking, built around a portable laptop and reliable input devices.', targetUser: 'University and college students', productIds: ['macbook-air-m3', 'keychron-k8-pro', 'logitech-mx-master-3s'] },
-  { id: 'beginner-programmer', title: 'Beginner Programmer Setup', tag: 'Programming', description: 'Comfortable gear for learning to code, with a quiet laptop, responsive keyboard, and a mouse that supports long sessions.', targetUser: 'Beginner developers and CS students', productIds: ['macbook-air-m3', 'keychron-k8-pro', 'logitech-mx-master-3s'] },
+  { id: 'student-essentials', title: 'Student Essentials Setup', tag: 'Student', description: 'A practical starting point for coursework and note-taking, built around a portable laptop and reliable input devices.', targetUser: 'University and college students', productIds: ['macbook-air-m5', 'keychron-k8-pro', 'logitech-mx-master-4'] },
+  { id: 'beginner-programmer', title: 'Beginner Programmer Setup', tag: 'Programming', description: 'Comfortable gear for learning to code, with a quiet laptop, responsive keyboard, and a mouse that supports long sessions.', targetUser: 'Beginner developers and CS students', productIds: ['macbook-air-m5', 'keychron-k8-pro', 'logitech-mx-master-4'] },
   { id: 'ai-developer', title: 'AI Developer Setup', tag: 'AI', description: 'A performance-focused setup for local AI experiments, model training, and demanding developer workflows.', targetUser: 'AI engineers and ML practitioners', productIds: ['asus-rog-zephyrus-g14', 'dell-ultrasharp-u2723qe', 'keychron-k8-pro'] },
-  { id: 'professional-workstation', title: 'Professional Workstation', tag: 'Professional', description: 'A sharp, colour-accurate display, a quiet laptop, and input gear suitable for professional work sessions.', targetUser: 'Professionals and office workers', productIds: ['dell-ultrasharp-u2723qe', 'macbook-air-m3', 'logitech-mx-master-3s'] },
+  { id: 'professional-workstation', title: 'Professional Workstation', tag: 'Professional', description: 'A sharp, colour-accurate display, a quiet laptop, and input gear suitable for professional work sessions.', targetUser: 'Professionals and office workers', productIds: ['dell-ultrasharp-u2723qe', 'macbook-air-m5', 'logitech-mx-master-4'] },
   { id: 'gaming-setup', title: 'Gaming Setup', tag: 'Gaming', description: 'A gaming laptop with a dedicated GPU and high-refresh OLED display, paired with a noise-cancelling headset for focused play.', targetUser: 'Gamers and creative gamers', productIds: ['asus-rog-zephyrus-g14', 'sony-wh1000xm5'] },
   { id: 'content-creator', title: 'Content Creator Setup', tag: 'Creator', description: 'A high-performance laptop, a colour-accurate 4K display, and comfortable audio gear for editing and streaming.', targetUser: 'Video editors, streamers, and creators', productIds: ['asus-rog-zephyrus-g14', 'dell-ultrasharp-u2723qe', 'sony-wh1000xm5'] },
-  { id: 'minimal-desk', title: 'Minimal Desk Setup', tag: 'Minimal', description: 'A focused desk: one laptop, one quality display, one comfortable mouse, one pair of headphones. Fewer distractions, better work.', targetUser: 'Remote workers and students', productIds: ['macbook-air-m3', 'dell-ultrasharp-u2723qe', 'logitech-mx-master-3s', 'sony-wh1000xm5'] },
-  { id: 'budget-home-office', title: 'Budget Home Office Setup', tag: 'Budget', description: 'A small-footprint, lower-cost setup that still prioritises ergonomics and reliable performance.', targetUser: 'Remote workers on a budget', productIds: ['keychron-k8-pro', 'logitech-mx-master-3s', 'sony-wh1000xm5'] }
+  { id: 'minimal-desk', title: 'Minimal Desk Setup', tag: 'Minimal', description: 'A focused desk: one laptop, one quality display, one comfortable mouse, one pair of headphones. Fewer distractions, better work.', targetUser: 'Remote workers and students', productIds: ['macbook-air-m5', 'dell-ultrasharp-u2723qe', 'logitech-mx-master-4', 'sony-wh1000xm5'] },
+  { id: 'budget-home-office', title: 'Budget Home Office Setup', tag: 'Budget', description: 'A small-footprint, lower-cost setup that still prioritises ergonomics and reliable performance.', targetUser: 'Remote workers on a budget', productIds: ['keychron-k8-pro', 'logitech-mx-master-4', 'sony-wh1000xm5'] }
 ];
 
 /* --------------------------------------------------------------------------
@@ -471,6 +442,7 @@ function formatPrice(usdAmount, currency = state.currency) {
 function priceBadge(product) {
   return { label: '', cls: '' }; 
 }
+
 function getProductById(id) { return PRODUCTS.find((p) => p.id === id) || null; }
 
 function getBestOffer(product) {
@@ -483,7 +455,7 @@ function getBestOffer(product) {
    -------------------------------------------------------------------------- */
 function isValidAsin(asin) {
   if (!asin || typeof asin !== 'string') return false;
-  return /^[A-Z0-9]{10}$/.test(asin.trim());
+  return /^[A-Z0-9]{9,10}$/.test(asin.trim()); 
 }
 
 function isValidAmazonUrl(url) {
@@ -671,7 +643,6 @@ function productCardHTML(product) {
     ? '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.name) + ' — representative image" loading="lazy" onerror="this.parentElement.classList.add(\'product-media--placeholder\');this.replaceWith(Object.assign(document.createElement(\'span\'),{textContent:\'Image unavailable\'}))" />'
     : '<span>Image unavailable</span>';
 
-  // Purchase buttons on the card — only visible when a real URL exists
   const purchaseHtml = buildPurchaseButtonsHTML(product, false);
 
   return (
@@ -1073,7 +1044,6 @@ function openProductModal(productId) {
   const compareLabel = $('#modalCompareLabel');
   if (compareLabel) compareLabel.textContent = inCompare ? 'Remove from compare' : 'Add to compare';
 
-  // Purchase buttons — rendered into the modal container
   const purchaseActions = $('#modalPurchaseActions');
   if (purchaseActions) {
     const html = buildPurchaseButtonsHTML(product, true);
@@ -1097,14 +1067,14 @@ function openProductModal(productId) {
   $('#modalNotFor').textContent = product.notFor || '—';
 
   const offersBody = $('#modalOffers');
-          if (offersBody) {
-          offersBody.innerHTML = product.offers.map((offer) => {
-            const statusClass = '';
-            const statusLabel = 'Available';
-            const lastChecked = offer.dataStatus === 'verified' && offer.lastChecked ? escapeHtml(offer.lastChecked) : 'Not available';
-            return `<tr><td>${escapeHtml(offer.retailer)}</td><td class="offer-price">${escapeHtml(formatPrice(offer.priceUSD))}</td><td>${escapeHtml(offer.availability)}</td><td>${escapeHtml(offer.region)}</td><td>${lastChecked}</td><td><span class="data-badge ${statusClass}">${statusLabel}</span></td></tr>`;
-          }).join('');
-        }
+  if (offersBody) {
+    offersBody.innerHTML = product.offers.map((offer) => {
+      const statusClass = '';
+      const statusLabel = 'Available';
+      const lastChecked = offer.dataStatus === 'verified' && offer.lastChecked ? escapeHtml(offer.lastChecked) : 'Not available';
+      return `<tr><td>${escapeHtml(offer.retailer)}</td><td class="offer-price">${escapeHtml(formatPrice(offer.priceUSD))}</td><td>${escapeHtml(offer.availability)}</td><td>${escapeHtml(offer.region)}</td><td>${lastChecked}</td><td><span class="data-badge ${statusClass}">${statusLabel}</span></td></tr>`;
+    }).join('');
+  }
 
   const relatedGrid = $('#modalRelated');
   if (relatedGrid) {
@@ -1620,7 +1590,96 @@ function setFooterYear() {
 }
 
 /* --------------------------------------------------------------------------
-   29. Init
+   29. Phase 4: Live Price Fetching
+   -------------------------------------------------------------------------- */
+async function fetchLivePrices() {
+  const API_URL = 'https://techsania.saniasarwar0007.workers.dev/live-prices'; 
+  
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error('Network response was not ok');
+    
+    const livePrices = await response.json();
+    
+    PRODUCTS.forEach(product => {
+      if (livePrices[product.amazonAsin]) {
+        const newPrice = livePrices[product.amazonAsin];
+        product.priceUSD = newPrice; 
+        
+        const amazonOffer = product.offers.find(o => o.retailer === 'Amazon');
+        if (amazonOffer) amazonOffer.priceUSD = newPrice;
+      }
+    });
+
+    renderProducts();
+    renderBundles();
+    console.log('Live prices updated successfully!');
+    
+  } catch (error) {
+    console.error('Failed to fetch live prices. Using static data.', error);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   30. Phase 5: AI Product Discovery
+   -------------------------------------------------------------------------- */
+function bindAIDiscovery() {
+  const form = $('#aiSearchForm');
+  const input = $('#aiInput');
+  const submitBtn = $('#aiSubmitBtn');
+  const chatHistory = $('#aiChatHistory');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const message = input.value.trim();
+    if (!message) return;
+
+    chatHistory.innerHTML += `<div style="align-self: flex-end; background: var(--color-accent); color: white; padding: 10px 15px; border-radius: 10px; max-width: 80%;">${escapeHtml(message)}</div>`;
+    input.value = '';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Thinking...';
+
+    const loadingId = 'loading-' + Date.now();
+    chatHistory.innerHTML += `<div id="${loadingId}" style="align-self: flex-start; background: var(--color-bg); border: 1px solid var(--color-border); padding: 10px 15px; border-radius: 10px; max-width: 80%;">AI is finding the best products...</div>`;
+
+    try {
+      const response = await fetch('https://techsania.saniasarwar0007.workers.dev/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: message,
+          products: PRODUCTS.map(p => ({ name: p.name, price: p.priceUSD, specs: p.specs, category: p.category })) 
+        })
+      });
+
+      const data = await response.json();
+      
+      const loadingEl = document.getElementById(loadingId);
+      if (loadingEl) loadingEl.remove();
+
+      if (data.reply) {
+        let formattedReply = data.reply.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+        chatHistory.innerHTML += `<div style="align-self: flex-start; background: var(--color-bg); border: 1px solid var(--color-accent); padding: 10px 15px; border-radius: 10px; max-width: 80%; line-height: 1.5;">${formattedReply}</div>`;
+      } else if (data.error) {
+        chatHistory.innerHTML += `<div style="align-self: flex-start; color: red; font-size: 14px;">Server Error: ${data.error}</div>`;
+      } else {
+        chatHistory.innerHTML += `<div style="align-self: flex-start; color: red;">Sorry, AI could not respond.</div>`;
+      }
+    } catch (error) {
+      const loadingEl = document.getElementById(loadingId);
+      if (loadingEl) loadingEl.remove();
+      chatHistory.innerHTML += `<div style="align-self: flex-start; color: red;">Network error: ${error.message}</div>`;
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Ask AI';
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  });
+}
+
+/* --------------------------------------------------------------------------
+   31. Init (Must be the last block)
    -------------------------------------------------------------------------- */
 function init() {
   loadState();
@@ -1647,6 +1706,10 @@ function init() {
   bindNewsletter();
   bindModalCloseHandlers();
   bindScrollSpy();
+
+  // Phase 4 & 5 Calls
+  bindAIDiscovery(); 
+  fetchLivePrices(); 
 
   const categorySelect = $('#filterCategory');
   if (categorySelect) categorySelect.value = state.filters.category;

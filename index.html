@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TechVault AI — Find the Right Technology. Make Smarter Decisions.</title>
+    <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sania_tech.github.io/techvault-ai/" />
+  <meta property="og:title" content="TechVault AI — Find the Right Technology" />
+  <meta property="og:description" content="Discover, compare, and explore the best tech products and AI tools in one place." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=80" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://sania_tech.github.io/techvault-ai/" />
+  <meta property="twitter:title" content="TechVault AI — Find the Right Technology" />
+  <meta property="twitter:description" content="Discover, compare, and explore the best tech products and AI tools in one place." />
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=80" />
   <meta
     name="description"
     content="TechVault AI is an independent technology and AI product discovery platform. Explore products, compare specifications and retailer offers, build a wishlist, and read practical buying guides."
@@ -358,11 +371,34 @@
         </div>
       </div>
     </section>
+    <!-- AI Discovery Section -->
+    <section class="section" id="ai-discovery" style="background-color: var(--color-bg-secondary);">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <div>
+            <p class="section-eyebrow">✨ AI-Powered</p>
+            <h2 class="section-title">What are you looking for?</h2>
+            <p class="section-subtitle">Ask our AI assistant to find the perfect tech for your needs and budget.</p>
+          </div>
+        </header>
 
+        <div class="finder-card" style="max-width: 800px; margin: 0 auto; padding: var(--space-5);">
+          <div id="aiChatHistory" style="margin-bottom: 15px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Chat messages will appear here -->
+          </div>
+          
+          <form id="aiSearchForm" style="display: flex; gap: 10px;">
+            <input type="text" id="aiInput" class="input" placeholder="e.g., I need a laptop under $1000 for coding..." style="flex: 1; padding: 12px;" required />
+            <button type="submit" class="btn btn-primary" id="aiSubmitBtn">Ask AI</button>
+          </form>
+        </div>
+      </div>
+    </section>
     <!-- ============================================================
          5. PRODUCT DISCOVERY
     ============================================================= -->
-        <section class="section products-section" id="products">
+       
+    <section class="section products-section" id="products">
       <div class="container">
         <header class="section-head section-head--center"> <!-- Yahan change kiya hai -->
           <div>
@@ -1159,14 +1195,7 @@
             <!-- YE LINE PASTE KAREIN -->
             <div class="product-purchase-actions" id="modalPurchaseActions"></div>
 
-                        <div class="product-detail-price">
-              <span class="price-label">Reference price</span>
-              <span class="price-value" id="modalPrice"></span>
-              <span class="data-flag" id="modalPriceFlag"></span>
-            </div>
-
-            <!-- YE NAYA DIV SAHI HAI -->
-            <div class="product-purchase-actions" id="modalPurchaseActions"></div>
+                      
 
             <!-- YE WALA HISSA SIRF EK BAAR HONA CHAHIYE -->
             <div class="product-detail-actions">
